@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div>
+        <h2>All 操作JSON文件数据</h2>
+        <ul id="products" />
+    </div>
+    <div>
+        <h2>显示数据</h2>
+
+        <div id="test" >
+        </div>
+    </div>
+    <p id="p1">第二个事件这是一个段落</p>
+    <script src="scripts/jquery-2.0.3.min.js"></script>
+    <!--第一个下面是菜鸟教程的JQuery操作test.json？？未成功？的用法-->
+    <script>
+        $(document).ready(function () {
+        $.getJSON('test.json', function (data) {
+    for (var i = 0; i < data.rows.length; i++) {
+        $('#test').append('<p>' + data.rows[i].realName + '</p>');
+      
+    }
+        });
+        });
+
+   
+    </script>
+    <!--第二2下面是菜鸟教程的JQuery的用法-->
+    <script>
+$(document).ready(function(){
+  $("#p1").mousedown(function(){
+    alert("鼠标在该段落上按下！");
+  });
+});
+    </script>
+    <!--第三下面是菜鸟教程的JQuery操作JSON对象的用法-->
+    <h2>JavaScript 第三个创建 JSON 对象</h2>
+    <p>
+        网站名称: <span id="jname"></span><br />
+        网站地址: <span id="jurl"></span><br />
+        网站 slogan: <span id="jslogan"></span><br />
+    </p>
+    <script>
+var JSONObject= {
+	"name":"菜鸟教程",
+	"url":"www.runoob.com",
+	"slogan":"学的不仅是技术，更是梦想！"
+};
+document.getElementById("jname").innerHTML=JSONObject.name
+document.getElementById("jurl").innerHTML=JSONObject.url
+document.getElementById("jslogan").innerHTML=JSONObject.slogan
+    </script>
+    <!--第4下面是菜鸟教程的JQuery操作JSON对象的用法-->
+    <h2>从 JSON 字符串中创建对象</h2>
+    <p>
+        网站名: <span id="name"></span><br>
+        网站地址: <span id="url"></span><br>
+    </p>
+    <script>
+var txt = '{ "sites" : [' +
+'{ "name":"菜鸟教程" , "url":"www.runoob.com" },' +
+'{ "name":"google" , "url":"www.google.com" },' +
+'{ "name":"微博" , "url":"www.weibo.com" } ]}';
+
+var obj = eval ("(" + txt + ")");
+
+document.getElementById("name").innerHTML=obj.sites[1].name
+document.getElementById("url").innerHTML=obj.sites[1].url
+    </script>
+   <!--<script src="scripts/jquery-2.0.3.min.js"></script>--> 
+</body>
+</html>
